@@ -47,5 +47,4 @@ resource "yandex_compute_instance" "storage" {
       disk_id     = secondary_disk.value.id
     }
   }
-  }
 }
