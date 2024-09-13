@@ -42,9 +42,10 @@ resource "yandex_compute_instance" "storage" {
   allow_stopping_for_update = true
 
   dynamic "secondary_disk" {
-    for_each = "${yandex_compute_disk.default.*.id}"
+    for_each = yandex_compute_disk.test_disk
     content {
-      disk_id = yandex_compute_disk.default["${secondary_disk.key}"].id
+      disk_id     = secondary_disk.value.id
     }
+  }
   }
 }
