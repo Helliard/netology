@@ -1,4 +1,4 @@
-resource "yandex_compute_disk" "default" {
+resource "yandex_compute_disk" "test_disk" {
   count    = 3
   name     = "${var.disk_name}-${count.index+1}"
   type     = var.vm_disk_type
